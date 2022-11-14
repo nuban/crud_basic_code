@@ -1,0 +1,36 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/crud?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    database: 8
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #输出日志
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: sys_  #表前缀
+#mybaties默认就能扫到我配的mapper
+  mapper-locations: classpath*:/mapper/**/*.xml #这就是默认的
+
+# 图片上传位置
+files:
+  upload:
+    path: D:\上传图片\
+
+logging:
+  level:
+    root: info
+    dz.xyz.loginproject: debug
+  file:
+    name: logs/sys-dev.log
